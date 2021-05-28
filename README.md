@@ -3,26 +3,39 @@
 
 Original repository -> for more information -> https://github.com/Neonx99/agar-discord-bot <-
 
+To put it on your own server -> [Bot invite link](https://discord.com/oauth2/authorize?client_id=847552359454081084&scope=bot&permissions=7232)
 
 
 ### 1 - agariodiscordbot/ in npm install's
 
-`npm install ws`
-
-`npm install discord.js`
-
-`npm install murmurhash-js`
-
-`npm install request-promise`
-
-`npm install request`
-
-`npm install colour`
+* `npm install ws`
+* `npm install discord.js`
+* `npm install murmurhash-js`
+* `npm install request-promise`
+* `npm install request`
+* `npm install colour`
 
 
 ### 2 - start
 
-  `node index.js`
+*  `node index.js`
+
+### 3 (optional) - you can keep it open continuously by installing pm2. (agariodiscordbot/ in)
+> make sure the program is not running or close ctrl + c
+*   `npm install pm2@latest -g`
+*   `pm2 list`
+*   `pm2 start index.js`
+*   `pm2 list`
+*   `pm2 save`
+*   `pm2 unstartup`
+*   `pm2 startup`
+*   `pm2 save`
+
+
+
+
+    
+    
   
   
   ### How to use

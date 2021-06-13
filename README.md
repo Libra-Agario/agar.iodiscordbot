@@ -62,8 +62,8 @@ To put it on your own server -> [Bot invite link](https://discord.com/oauth2/aut
   * `agar.io bot-ping`
 
 * Example's ; Game Mode link
-    * agar.io ffa tr
-    * agar.io exp br
-    * agar.io party eu
-    * agar.io teams ru
-    * agar.io battleroyale us
+    * `agar.io ffa tr`
+    * `agar.io exp br`
+    * `agar.io party eu`
+    * `agar.io teams ru`
+    * `agar.io battleroyale us`

@@ -32,7 +32,7 @@ bot.on('message', async msg => {
 
     switch (args[0].toLocaleLowerCase()) {
 
-        case 'ping':
+        case 'bot-ping':
             embed = new MessageEmbed();
             embed.addField('Bot ping', Math.round(bot.ws.ping));
             embed.setColor('RANDOM');
@@ -41,7 +41,7 @@ bot.on('message', async msg => {
 
         case 'help':
             embed = new MessageEmbed();
-            embed.addField('Commands', `${prefix}ffa\n${prefix}exp\n${prefix}party\n${prefix}info\n${prefix}bot-invite\n${prefix}ping`);
+            embed.addField('Commands', `${prefix}ffa\n${prefix}exp\n${prefix}party\n${prefix}teams\n${prefix}battleroyale\n${prefix}info\n${prefix}bot-invite\n${prefix}bot-github\n${prefix}bot-ping`);
             embed.setColor('RANDOM');
             msg.channel.send(embed);
             break;
@@ -49,11 +49,19 @@ bot.on('message', async msg => {
         case 'bot-invite':
             embed = new MessageEmbed();
             embed.setColor('RANDOM');
-            embed.setTitle('Bot Invite Link');
+            embed.setTitle('Agar.io Discord Bot Invite Link');
             embed.setURL(`https://discordapp.com/oauth2/authorize?client_id=${bot.user.id}&scope=bot&permissions=7232`);
             msg.channel.send(embed);
             break;
-
+        
+        case 'bot-github':
+            embed = new MessageEmbed();
+            embed.setColor('RANDOM');
+            embed.setTitle('Agar.io Discord Bot Github');
+            embed.setURL(`https://github.com/Libra-Agario/agariodiscordbot`);
+            msg.channel.send(embed);
+            break;
+        
         case 'info':
             let latestID = await request('https://webbouncer-live-v8-0.agario.miniclippt.com/getLatestID');
             let webBouncer = await request('https://webbouncer-live-v8-0.agario.miniclippt.com/info');
@@ -80,6 +88,7 @@ bot.on('message', async msg => {
         case 'ffa':
         case 'exp':
         case 'teams':
+        case 'battleroyale':
             if (!args[1] || !args[1].toUpperCase().match(/EU|RU|TR|CN|US|JP|BR|SG/)) {
                 embed = new MessageEmbed();
                 embed.setColor('RANDOM');
@@ -92,7 +101,8 @@ bot.on('message', async msg => {
             let gamemode = ':ffa';
             if (args[0] == 'exp') gamemode = ':experimental';
             if (args[0] == 'teams') gamemode = ':teams';
-            
+            if (args[0] == 'battleroyale') gamemode = ':battleroyale';
+        
             embed = new MessageEmbed();
             embed.setColor('RANDOM');
 

@@ -79,6 +79,7 @@ bot.on('message', async msg => {
         
         case 'ffa':
         case 'exp':
+        case 'teams':
             if (!args[1] || !args[1].toUpperCase().match(/EU|RU|TR|CN|US|JP|BR|SG/)) {
                 embed = new MessageEmbed();
                 embed.setColor('RANDOM');
@@ -87,11 +88,15 @@ bot.on('message', async msg => {
                 embed.addField('Example', `${prefix}ffa tr`);
                 return msg.channel.send(embed);
             }
-
+            
+            let gamemode = ':ffa';
+            if (args[0] == 'exp') gamemode = ':experimental';
+            if (args[0] == 'teams') gamemode = ':teams';
+            
             embed = new MessageEmbed();
             embed.setColor('RANDOM');
 
-            requestV4('findServer', generateBytes(args[1], args[0] == 'ffa' ? ':ffa' : ':experimental'), body => {
+            requestV4('findServer', generateBytes(args[1], gamemode), body => {
                 let ip = `${body.endpoints.https.includes('ip') ? 'ws://' + body.endpoints.https : 'wss://' + body.endpoints.https}`;
                 embed.addField('Server info', `Link: https://agar.io/?sip=${body.endpoints.https}\nRegion: ${generateBytes(args[1], 'region')}\nIP: ${ip}`);
                 msg.channel.send(embed);
